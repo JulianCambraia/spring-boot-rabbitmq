@@ -19,13 +19,21 @@ item “Add a new queue”, como demonstrado na imagem abaixo:
 O plugin de administração visual nem sempre está ativo na instalação, utilizaremos um dcoker para subir uma imagem simples
 do RabbitMQ. A forma mais simples de se fazer seria esta aqui:
 
-``docker run -d --hostname my-rabbit --name rabbit13 -p 8080:15672 -p 5672:5672 -p 25676:25676 rabbitmq:3-management``
+```docker run -d --hostname my-rabbit --name rabbit13 -p 8080:15672 -p 5672:5672 -p 25676:25676 rabbitmq:3-management```
 
-``user: guest``
-<br/>
-``senha: guest``
+``` 
+user:  guest 
+senha: guest 
+```
 
 ![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/login-rabitmq.png?raw=true)
 
+
+#### 1.2 Dependências e Propriedades
+ 
+A dependência do RabbitMQ para o Spring Boot é o spring-boot-starter-amqp, que apesar do nome genérico traz funcionalidades 
+do RabbitMQ.
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/dependencia-rabbitmq.png?raw=true)
 
 
