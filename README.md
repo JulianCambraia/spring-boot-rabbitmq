@@ -36,4 +36,7 @@ do RabbitMQ.
 
 ![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/dependencia-rabbitmq.png?raw=true)
 
+##### 1.2.1 application.properties
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/application.properties.png?raw=true)
 
