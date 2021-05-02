@@ -40,3 +40,8 @@ do RabbitMQ.
 
 ![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/application.properties.png?raw=true)
 
+##### 1.2.2 Classe de Configuração do Spring Boot. 
+Após configurado, a Queue pode ser inicializada através de um @Bean na classe de configuração do Spring Boot, assim 
+centralizando e possibilitando injeção do objeto que representa a fila.
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/sender-app.png?raw=true)
