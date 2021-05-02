@@ -1,4 +1,4 @@
-# POC Springboot 2.5 RabbitMQ 
+# Prova de Conceito Springboot 2.5 RabbitMQ 
 
 ### 1.  Introdução
 
@@ -79,6 +79,11 @@ Por padrão, a anotação @RabbitListener instância apenas um consumer, ou seja
 fila, caso seja necessário mudar esse comportamento, configurar as propriedades 
 ``spring.rabbitmq.listener.simple.concurrency`` e ``spring.rabbitmq.listener.simple.max-concurrency`` no application.properties.
 
-E pra fechar esse simples POC
+E pra fechar esta simples (Poc - Prova de Conceito)
 O único pré-requisito para utilizar essa anotação é ativar o Rabbit na aplicação, utilizando a anotação 
 ```@EnableRabbit na classe de configuração.``` 
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/consumer-enable-rabbitmq.png?raw=true)
+
+Concluindo, o RabbitMQ é uma boa alternativa de message broker, pois além de simples de utilizar e configurar em conjunto 
+com o Spring Boot, também apresenta um bom desempenho e com possibilidade de configurações para atender alta escalabilidade.
