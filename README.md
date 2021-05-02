@@ -45,3 +45,16 @@ Após configurado, a Queue pode ser inicializada através de um @Bean na classe 
 centralizando e possibilitando injeção do objeto que representa a fila.
 
 ![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/sender-app.png?raw=true)
+
+##### 1.2.3 Enviando e Consumindo dados no RabbitMQ
+
+Realizado os dois passos anteriores, a aplicação está pronta para enviar e consumir dados de filas no RabbitMQ. 
+Vamos iniciar pelo envido de dados para fila, criando a classe OrderQueueSender, que tem como objetivo conectar no RabbitMQ 
+e enviar mensagens para fila.
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/order-sender.png?raw=true)
+
+* RabbitTemplate: É uma classe helper para acessar e enviar mensagens para RabbitMQ de forma síncrona;
+* Queue: É um objeto que representa a fila configurada;
+* rabbitTemplate.convertAndSend: Método possui recebe os parâmetro: routingKey e message, onde são o nome da filea e a 
+mensagem a ser enviada.
