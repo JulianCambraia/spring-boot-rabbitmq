@@ -40,7 +40,7 @@ do RabbitMQ.
 
 ![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/application.properties.png?raw=true)
 
-##### 1.2.2 Classe de Configuração do Spring Boot. 
+##### 1.2.2 Enviando Dados para Fila do RabbitMQ. 
 Após configurado, a Queue pode ser inicializada através de um @Bean na classe de configuração do Spring Boot, assim 
 centralizando e possibilitando injeção do objeto que representa a fila.
 
@@ -58,3 +58,27 @@ e enviar mensagens para fila.
 * Queue: É um objeto que representa a fila configurada;
 * rabbitTemplate.convertAndSend: Método possui recebe os parâmetro: routingKey e message, onde são o nome da filea e a 
 mensagem a ser enviada.
+
+Com isso, a cada chamada do método send, será enviado uma mensagem para fila, no caso do exemplo acima, o pedido(order) 
+será enviando no corpo da mensagem para o RabbitMQ na fila OrderQueue.
+
+##### 2. Consumindo Dados da Fila do RabbitMQ.
+ 
+Para consumir a fila, a dependência do spring-boot-starter-amqp, disponibiliza a anotação @RabbitListener que recebe como 
+parâmetro um array de String, que são os nomes da filas que serão consumidas, dessa forma, quando inicializado a aplicação 
+o método anotado começará a consumir a fila.
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/order-consumer.png?raw=true)
+
+* @Component: O consumer deve ser um bean mapeado no Spring, por isso anotado como componente;
+* @RabbitListener: É a anotação que marca o método como um listener;
+* @Payload: É a anotação que informa que o parâmetro vai receber o corpo da mensagem. Observação: não é obrigatório quando tem apenas um parâmetro.
+
+##### 2.1. Consumindo Uma única fila de Dados do RabbitMQ.
+Por padrão, a anotação @RabbitListener instância apenas um consumer, ou seja, não trabalha com concorrência na leitura da 
+fila, caso seja necessário mudar esse comportamento, configurar as propriedades 
+``spring.rabbitmq.listener.simple.concurrency`` e ``spring.rabbitmq.listener.simple.max-concurrency`` no application.properties.
+
+E pra fechar esse simples POC
+O único pré-requisito para utilizar essa anotação é ativar o Rabbit na aplicação, utilizando a anotação 
+```@EnableRabbit na classe de configuração.``` 
