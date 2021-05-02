@@ -13,3 +13,17 @@ A criação da fila pode ser feita pela tela de administração do RabbitMQ no e
 item “Add a new queue”, como demonstrado na imagem abaixo:
 
 ![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/rabbitmq-criando-queue1.png?raw=true)
+
+#### 1.1 Observação
+ 
+O plugin de administração visual nem sempre está ativo na instalação, utilizaremos um dcoker para subir uma imagem simples
+do RabbitMQ. A forma mais simples de se fazer seria esta aqui:
+
+``docker run -d --hostname my-rabbit --name rabbit13 -p 8080:15672 -p 5672:5672 -p 25676:25676 rabbitmq:3-management``
+``user: guest``
+<br/>
+``senha: guest``
+
+![alt text](https://github.com/julianCambraia/spring-boot-rabbitmq/blob/main/images/login-rabitmq.png?raw=true)
+
+
